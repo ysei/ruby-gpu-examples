@@ -19,6 +19,6 @@ printBanner(rings)
 
 runCPUSingleThreaded(rings)
 runCPUMultiThreaded(rings, num_threads)
-# runGPU(rings)
+runGPU(rings)
 
 puts("Done!\n\n")

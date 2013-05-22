@@ -55,15 +55,15 @@ int main(int argc, const char * argv[]) {
 	timeval_subtract(&diff, &stop, &start);
 	printf("%ld.%06ld seconds\n", (long)diff.tv_sec, (long)diff.tv_usec);
 	//printf("Area 2 = %f\n", res);
-	//res = 0;
-
-	printf("Running parallel calculation using GPU...\t\t");
+	// res = 0;
+	// 
+	// printf("Running parallel calculation using GPU...\t\t");
 	// gettimeofday(&start, NULL);
 	// calculate_ring_areas_on_GPU();
 	// gettimeofday(&stop, NULL);
 	// timeval_subtract(&diff, &stop, &start);
 	// printf("%ld.%06ld seconds\n", (long)diff.tv_sec, (long)diff.tv_usec);
-	//printf("Area 3 = %f\n", res);
+	// printf("Area 3 = %f\n", res);
 	
 	printf("\nDone!\n\n");	
 	return EXIT_SUCCESS;
@@ -80,8 +80,9 @@ void calculate_ring_areas_in_serial_with_offset(int rings, int thread) {
 	int offset = rings * thread;
 	int max = rings + offset;
 	float a = 0;
-	for(i = offset+1; i < max+1; i++) {
+	for(i = offset+1; i <= max; i++) {
 		a = (M_PI * pow(i, 2)) - (M_PI * pow(i - 1, 2));
+		// printf("%d %f\n", i, a);
 		//res += a;
 	}
 }
